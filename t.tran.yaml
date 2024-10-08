@@ -1,0 +1,17 @@
+type: "transformation"
+version: "1.0"
+pipeline:
+  components:
+    SQL:
+      type: "sql"
+      parameters:
+        componentName: "SQL"
+        query: "SELECT *\r\nFROM read_files('s3://devrel.matillion.com/solutions/GreenWave/customer_accounts.json',\
+          \ format=>'json')"
+design:
+  components:
+    SQL:
+      position:
+        x: 830
+        "y": 250
+      tempMetlId: 1

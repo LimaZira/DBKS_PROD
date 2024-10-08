@@ -1,0 +1,36 @@
+type: "orchestration"
+version: "1.0"
+pipeline:
+  components:
+    Start:
+      type: "start"
+      transitions:
+        unconditional:
+        - "Create Table"
+      parameters:
+        componentName: "Start"
+    Create Table:
+      type: "create-table-v2"
+      parameters:
+        componentName: "Create Table"
+        createMethod: "Replace"
+        catalog: "[Environment Default]"
+        schema: "[Environment Default]"
+        table: "tmp_table"
+        tableMetadata:
+        tableType: "Managed"
+        partitionColumns:
+        tableProperties:
+        comment:
+design:
+  components:
+    Start:
+      position:
+        x: -240
+        "y": -90
+      tempMetlId: 1
+    Create Table:
+      position:
+        x: -120
+        "y": -90
+      tempMetlId: 2
